@@ -15,7 +15,7 @@ on:
     
 env:
   ROM_URL: https://firmware.meizu.com/Firmware/Flyme/m1928/8.20.4.14/cn_beta/20200409154802/7de14a45/update.zip
-  ROM_NAME: FlymeOS
+  ROM_NAME: Flyme
   TZ: Asia/Shanghai
 
 jobs:
