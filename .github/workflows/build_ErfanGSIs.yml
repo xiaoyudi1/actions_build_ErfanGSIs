@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://oxygenos.oneplus.net/OnePlus7ProOxygen_21.O.07_OTA_007_all_1905120542_fc480574576b4843.zip 
-  ROM_NAME: OxygenOS
+  ROM_URL: https://firmware.meizu.com/Firmware/Flyme/m1928/8.20.4.14/cn_beta/20200409154802/7de14a45/update.zip
+  ROM_NAME: FlymeOS
   TZ: Asia/Shanghai
 
 jobs:
