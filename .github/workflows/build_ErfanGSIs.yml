@@ -50,7 +50,7 @@ jobs:
               mkdir final
               7z a -r final/GSI.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
        
-       - name: Upload GSI to WenShushu
+       - name: Upload GSI to Airportal
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wss final/GSI.7z
+              ./transfer arp final/GSI.7z
