@@ -26,14 +26,17 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@master
+         
+       - name: Cleaning up
+         run: |
+           docker rmi `docker images -q`
 
        - name: Cloning ErfanGSIs tools
          run: |
             git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
             sudo chmod -R 777 ErfanGSIs
-            docker rmi `docker images -q`	
-      
-       - name: Setting up ErfanGSI requirements
+             
+       - name: Setting up Porting Environment
          run: |
            cd ErfanGSIs
            sudo apt update
@@ -42,12 +45,12 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
        
-       - name: Zip GSI  
+       - name: Compassing GSI with 7zip
          run: |
               mkdir final
               7z a -r final/GSI.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
        
-       - name: Upload GSI to BitSend
+       - name: Upload GSI to WenShushu
          run: |
               curl -sL https://git.io/file-transfer | sh
               ./transfer wss final/GSI.7z
