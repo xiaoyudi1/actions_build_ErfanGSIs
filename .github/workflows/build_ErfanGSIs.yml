@@ -32,9 +32,7 @@ jobs:
             git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
             sudo chmod -R 777 ErfanGSIs
             docker rmi `docker images -q`	
-            sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d	
-            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-       
+      
        - name: Setting up ErfanGSI requirements
          run: |
            cd ErfanGSIs
@@ -52,4 +50,4 @@ jobs:
        - name: Upload GSI to BitSend
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer bit final/GSI.7z
+              ./transfer wss final/GSI.7z
