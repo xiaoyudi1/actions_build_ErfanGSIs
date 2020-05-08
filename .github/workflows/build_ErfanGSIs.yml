@@ -48,11 +48,11 @@ jobs:
        - name: Compassing GSI
          run: |
               mkdir releasing
-              mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/* releasing/
+              sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/* releasing/
               echo "Deleting ErfanGSIs tools"
-              rm -rf ErfanGSIs 
+              sudo rm -rf ErfanGSIs 
               echo "Compassing GSI with britli"
-              br -q 6 -r -o GSI.br releasing/*
+              sudo br -q 6 -r -o GSI.br releasing/*
               echo "Compassing GSI with 7zip"
               7z a -r GSI.7z GSI.br
        
