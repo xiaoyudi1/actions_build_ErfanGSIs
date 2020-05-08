@@ -63,5 +63,5 @@ jobs:
        - name: Upload GSI to Airportal
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer bit GSI-AB.7z
-              ./transfer bit GSI-A.7z
+              ./transfer cow GSI-AB.7z
+              ./transfer cow GSI-A.7z
