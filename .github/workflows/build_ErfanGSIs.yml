@@ -43,14 +43,20 @@ jobs:
            sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME -ab
        
-       - name: Compassing GSI with 7zip
+       - name: Compassing GSI
          run: |
-              mkdir final
-              7z a -r final/GSI.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+              mkdir releasing
+              mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/* releasing/
+              echo "Deleting ErfanGSIs tools"
+              rm -rf ErfanGSIs 
+              echo "Compassing GSI with britli"
+              br -q 6 -r -o GSI.br releasing/*
+              echo "Compassing GSI with 7zip"
+              7z a -r GSI.7z GSI.br
        
        - name: Upload GSI to Airportal
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer arp final/GSI.7z
+              ./transfer arp GSI.7z
