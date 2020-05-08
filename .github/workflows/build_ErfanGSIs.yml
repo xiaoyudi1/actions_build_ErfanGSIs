@@ -52,8 +52,8 @@ jobs:
               echo "Deleting ErfanGSIs tools"
               sudo rm -rf ErfanGSIs 
               echo "Compassing GSI with britli"
-              sudo br -q 6 -r -o GSI-AB.br releasing/MIUI-AB-10-*-ErfanGSI.img
-              sudo br -q 6 -r -o GSI-A.br releasing/MIUI-Aonly-10-*-ErfanGSI.img
+              sudo brotli -q 6 -r -o GSI-AB.br releasing/MIUI-AB-10-*-ErfanGSI.img
+              sudo brotli -q 6 -r -o GSI-A.br releasing/MIUI-Aonly-10-*-ErfanGSI.img
               echo "Compassing GSI with 7zip"
               7z a -r GSI-AB.7z GSI-AB.br
               sudo rm GSI-AB.br
