@@ -43,7 +43,7 @@ jobs:
            sudo bash setup.sh
        
        - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME -ab
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --ab
        
        - name: Compassing GSI
          run: |
@@ -51,17 +51,10 @@ jobs:
               sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/* releasing/
               echo "Deleting ErfanGSIs tools"
               sudo rm -rf ErfanGSIs 
-              echo "Compassing GSI with britli"
-              sudo brotli -q 6 -j -o GSI-AB.br releasing/MIUI-AB-10-*-ErfanGSI.img
-              sudo brotli -q 6 -j -o GSI-A.br releasing/MIUI-Aonly-10-*-ErfanGSI.img
               echo "Compassing GSI with 7zip"
-              7z a -r GSI-AB.7z GSI-AB.br
-              sudo rm GSI-AB.br
-              7z a -r GSI-A.7z GSI-A.br
-              sudo rm GSI-A.br
+              sudo 7z a -r GSI-AB.7z releasing/MIUI-AB-*-*-ErfanGSI.img
        
-       - name: Upload GSI to Airportal
+       - name: Upload GSI
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer cow GSI-AB.7z
-              ./transfer cow GSI-A.7z
+              sudo ./transfer bit GSI-AB.7z
