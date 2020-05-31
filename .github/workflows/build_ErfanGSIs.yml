@@ -53,4 +53,4 @@ jobs:
        - name: Upload GSI
          run: |
               curl -sL https://git.io/file-transfer | sh
-              sudo ./transfer wet releasing/*.img
+              sudo ./transfer bit releasing/*.img
