@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/20.5.27/miui_MI8Lite_20.5.27_e646532b8b_10.0.zip
+  ROM_URL: https://hugeota.d.miui.com/20.6.1/miui_VIOLET_20.6.1_68c5f851ce_10.0.zip 
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -48,9 +48,9 @@ jobs:
        - name: Copy GSI
          run: |
               mkdir releasing
-              sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img releasing/
-       
+              sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img releasing/ && sudo brotli -q 6 -j -o GSI-AB.br releasing/MIUI-AB-10-*-ErfanGSI.img
+
        - name: Upload GSI
          run: |
               curl -sL https://git.io/file-transfer | sh
-              sudo ./transfer bit releasing/*.img
+              sudo ./transfer wet GSI-AB.br
