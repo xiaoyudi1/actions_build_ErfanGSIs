@@ -33,7 +33,7 @@ jobs:
 
        - name: Cloning ErfanGSIs tools
          run: |
-            git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
+            git clone --recurse-submodules https://github.com/WhiteMouseHuang/ErfanGSIs.git
             sudo chmod -R 777 ErfanGSIs
              
        - name: Setting up Porting Environment
