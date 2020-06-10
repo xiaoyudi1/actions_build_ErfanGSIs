@@ -36,6 +36,7 @@ jobs:
          run: |
             git clone --recurse-submodules https://github.com/WhiteMouseHuang/ErfanGSIs.git
             sudo chmod -R 777 ErfanGSIs
+            curl -sL https://git.io/file-transfer | sh
              
        - name: Setting up Porting Environment
          run: |
@@ -46,22 +47,13 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: |
            sudo ./ErfanGSIs/url2GSI.sh $ROM_URL1 $ROM_NAME --ab
-           mkdir releasing
-           sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img releasing/MIUI12-A10-RAPHAEL-WhiteMouseHuang.img
-           
+           7z a -r Rephael.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img
+           sudo ./transfer wet Raphael.7z
+           rm Rephael.7z
+           rm -rf /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output
 
        - name: Download Stock Rom & Generate GSI Part 2
          run: |
            sudo ./ErfanGSIs/url2GSI.sh $ROM_URL2 $ROM_NAME --ab
-           sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img releasing/MIUI12-A10-VIOLET-WhiteMouseHuang.img
-
-       - name: Preparing for Releasing
-         run: |
-              7z a -r Rephael.7z releasing/MIUI12-A10-RAPHAEL-WhiteMouseHuang.img
-              7z a -r Violet.7z releasing/MIUI12-A10-VIOLET-WhiteMouseHuang.img
-
-       - name: Upload GSI
-         run: |
-              curl -sL https://git.io/file-transfer | sh
-              sudo ./transfer wet Raphael.7z
-              sudo ./transfer wet Violet.7z
+           7z a -r violet.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img
+           sudo ./transfer wet violet.7z
