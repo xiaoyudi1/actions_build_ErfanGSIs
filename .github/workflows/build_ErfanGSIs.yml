@@ -48,12 +48,12 @@ jobs:
          run: |
            sudo ./ErfanGSIs/url2GSI.sh $ROM_URL1 $ROM_NAME --ab
            7z a -r Rephael.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img
-           sudo ./transfer wet Raphael.7z
-           rm Rephael.7z
-           rm -rf /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output
+           sudo ./transfer bit Raphael.7z
+           sudo rm Rephael.7z
+           sudo rm -rf /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output
 
        - name: Download Stock Rom & Generate GSI Part 2
          run: |
            sudo ./ErfanGSIs/url2GSI.sh $ROM_URL2 $ROM_NAME --ab
            7z a -r violet.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img
-           sudo ./transfer wet violet.7z
+           sudo ./transfer bit violet.7z
