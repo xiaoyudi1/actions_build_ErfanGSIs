@@ -46,14 +46,21 @@ jobs:
        
        - name: Download Stock Rom & Generate GSI
          run: |
-           sudo ./ErfanGSIs/url2GSI.sh $ROM_URL1 $ROM_NAME --ab
-           7z a -r raphael.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img
-           sudo ./transfer wet raphael.7z
-           sudo rm raphael.7z
+           sudo ./ErfanGSIs/url2GSI.sh $ROM_URL1 $ROM_NAME
+           ls /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
+           7z a -r raphael-ab.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-AB-10-*-ErfanGSI.img
+           sudo ./transfer wet raphael-ab.7z
+           sudo rm raphael-ab.7z
+           7z a -r raphael-aonly.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-Aonly-*-ErfanGSI.img
+           sudo ./transfer wet raphael-aonly.7z
+           sudo rm raphael-aonly.7z
            sudo rm -rf /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output
 
        - name: Download Stock Rom & Generate GSI Part 2
          run: |
-           sudo ./ErfanGSIs/url2GSI.sh $ROM_URL2 $ROM_NAME --ab
-           7z a -r violet.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*.img
-           sudo ./transfer wet violet.7z
+           sudo ./ErfanGSIs/url2GSI.sh $ROM_URL2 $ROM_NAME
+           7z a -r raphael-ab.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-AB-10-*-ErfanGSI.img
+           sudo ./transfer wet violet-ab.7z
+           sudo rm violet-aonly.7z
+           7z a -r violet-aonly.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-Aonly-*-ErfanGSI.img
+           sudo ./transfer wet violet-aonly.7z
