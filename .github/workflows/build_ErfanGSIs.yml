@@ -14,8 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL1: https://hugeota.d.miui.com/20.6.17/miui_RAPHAEL_20.6.17_bdb369485a_10.0.zip
-  ROM_URL2: https://hugeota.d.miui.com/20.6.17/miui_VIOLET_20.6.17_72bd874f28_10.0.zip
+  ROM_URL1: http://bigota.d.miui.com/20.6.18/miui_MIMIX2S_20.6.18_cc99dd878d_10.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -56,11 +55,3 @@ jobs:
            sudo rm raphael-aonly.7z
            sudo rm -rf /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output
 
-       - name: Download Stock Rom & Generate GSI Part 2
-         run: |
-           sudo ./ErfanGSIs/url2GSI.sh $ROM_URL2 $ROM_NAME
-           7z a -r violet-ab.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-AB-10-*-ErfanGSI.img
-           sudo ./transfer wet violet-ab.7z
-           sudo rm violet-ab.7z
-           7z a -r violet-aonly.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-Aonly-*-ErfanGSI.img
-           sudo ./transfer wet violet-aonly.7z
