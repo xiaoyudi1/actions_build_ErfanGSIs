@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL1: https://hugeota.d.miui.com/20.5.6/miui_MIMIX2S_20.5.6_559df75f86_10.0.zip
+  ROM_URL1: https://hugeota.d.miui.com/20.6.17/miui_HMNote5_20.6.17_581679288b_9.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -47,8 +47,8 @@ jobs:
          run: |
            sudo ./ErfanGSIs/url2GSI.sh $ROM_URL1 $ROM_NAME
            ls /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
-           7z a -r mix2s-ab.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-AB-10-*-ErfanGSI.img
-           sudo ./transfer wet mix2s-ab.7z
+           7z a -r blackshark-ab.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-AB-10-*-ErfanGSI.img
+           sudo ./transfer wet blackshark-ab.7z
 #           sudo rm raphael-ab.7z
 #           7z a -r raphael-aonly.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/MIUI-Aonly-*-ErfanGSI.img
 #           sudo ./transfer wet raphael-aonly.7z
