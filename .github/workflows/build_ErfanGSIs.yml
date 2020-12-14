@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://bigota.d.miui.com/V12.0.11.0.QJBCNXM/miui_UMI_V12.0.11.0.QJBCNXM_03afa44d87_10.0.zip
+  ROM_URL: https://miuiver.com/cas-20-10-15/
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
