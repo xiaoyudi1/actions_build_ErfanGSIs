@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://miuiver.com/cas-20-10-15/
+  ROM_URL: https://miuiver.com/cas-20-12-10/
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
